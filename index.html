@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chatbot - Saman Naz</title>
+<style>
+body{font-family:Arial;background:#0f0f0f;color:white;display:flex;justify-content:center;padding:20px}
+.chat{width:100%;max-width:500px;background:#1e1e1e;padding:20px;border-radius:12px}
+#box{height:300px;overflow-y:auto;border:1px solid #444;padding:10px;margin:10px 0;border-radius:8px;background:#111}
+input{width:70%;padding:10px;border-radius:5px;border:none}
+button{padding:10px 15px;background:#4CAF50;color:white;border:none;border-radius:5px}
+</style>
+</head>
+<body>
+<div class="chat">
+<h2>🤖 AI Chatbot</h2>
+<p>Saman Naz - HISAB Internship Day 1</p>
+<div id="box"><p><b>Bot:</b> As-salamu Alaikum! How can I help you?</p></div>
+<input id="inp" placeholder="Type message..." />
+<button onclick="send()">Send</button>
+</div>
+<script>
+function send(){
+let i=document.getElementById("inp");
+let b=document.getElementById("box");
+if(!i.value) return;
+b.innerHTML+=`<p><b>You:</b> ${i.value}</p>`;
+b.innerHTML+=`<p style="color:gray"><i>Bot is thinking...</i></p>`;
+let userMsg=i.value;
+i.value="";
+setTimeout(()=>{
+b.lastChild.remove();
+b.innerHTML+=`<p><b>Bot:</b> You said '${userMsg}'. This is my Day 1 AI Chatbot demo!</p>`;
+b.scrollTop=b.scrollHeight;
+},800);
+}
+</script>
+</body>
+</html>
